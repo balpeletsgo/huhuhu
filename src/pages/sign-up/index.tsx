@@ -6,7 +6,6 @@ import { signUpSchema, type SignUpSchema } from "@/server/schema/AuthSchema";
 import { api } from "@/utils/api";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { BookAudioIcon } from "lucide-react";
-import { useSession } from "next-auth/react";
 import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -43,9 +42,9 @@ export default function SignUp() {
     onSettled: () => {
       setIsLoading(false);
     },
-    onSuccess: () => {
+    onSuccess: async () => {
       form.reset();
-      router.push("/sign-in");
+      await router.push("/sign-in");
     },
   });
 

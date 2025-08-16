@@ -11,7 +11,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import type { SignInSchema } from "@/server/schema/AuthSchema";
-import { Eye, EyeOff, Loader2, Loader2Icon } from "lucide-react";
+import { Eye, EyeOff, Loader2Icon } from "lucide-react";
 import { useState } from "react";
 import { useFormContext } from "react-hook-form";
 

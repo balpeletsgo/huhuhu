@@ -5,7 +5,7 @@ import { Form } from "@/components/ui/form";
 import { signInSchema, type SignInSchema } from "@/server/schema/AuthSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { BookAudioIcon } from "lucide-react";
-import { signIn, useSession } from "next-auth/react";
+import { signIn } from "next-auth/react";
 import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -38,12 +38,12 @@ export default function SignIn() {
       if (!res?.ok) {
         return form.setError("email", {
           type: "manual",
-          message: res?.error || "Credentials provided are invalid",
+          message: res?.error ?? "Credentials provided are invalid",
         });
       }
 
       form.reset();
-      router.push("/");
+      await router.push("/");
     } catch (error) {
       console.error("Sign-in error:", error);
     } finally {
